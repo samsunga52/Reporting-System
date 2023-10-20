@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReferenceNo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CellNo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Agent" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="255" />
+    <Property Name="FirstName" Type="varchar" MaxLength="255" />
+    <Property Name="LastName" Type="varchar" MaxLength="255" />
+    <Property Name="Title" Type="varchar" MaxLength="255" />
+    <Property Name="DeletedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CustomerTransactions">
+    <Key>
+      <PropertyRef Name="CustomerTransID" />
+    </Key>
+    <Property Name="CustomerTransID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrasnactionDate" Type="datetime" />
+    <Property Name="ReferenceNo" Type="varchar" MaxLength="255" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="255" />
+    <Property Name="TransactionDescription" Type="varchar" MaxLength="255" />
+    <Property Name="TransactionAmount" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerTransactions" EntityType="Self.CustomerTransactions" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
